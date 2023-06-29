@@ -1,0 +1,79 @@
+
+{% extends './base.html' %}
+{% load static %}
+{% block title %} CaosNews | Noticias {% endblock %}
+
+{% block body %}
+    <!--Carrusel-->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+
+        
+        <div class="carousel-item active img-1">
+          <img src="{% static 'img/articulo-1.jpg'%}" class="d-block w-100" alt="articulo 1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5><a href="./not-1.html" class="not-link">Real Madrid y el City empataron en la semifinal de ida de la Champions</a></h5>
+            <p>El elenco merengue jugó mejor, pero no pudo hacer la diferencia en su casa.</p>
+          </div>
+        </div>
+      
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+    <!--Tarjetas-->
+    <div class="noticias">
+      <div>
+          <h1>Lo más visto</h1>
+      </div>
+    </div>
+
+    <div class="container mb-4 mt-4">
+      <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4">
+              <div class="card card-hover">
+                  <div class="card-body text-center m-2">
+                      
+                      <img class="w-100 rounded-4" src="{% static 'img/nt1.jpg'%}" alt="nt1"><br><br>
+                      <h3 class="card-title mb-4">Aumento del salario Minimo</h3> 
+                      <a href="./anacleto.html" class="btn btn-primary mt-4">Ver más</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4 ">
+              <div class="card card-hover">
+                  <div class="card-body text-center m-2">
+                    
+                      <img class="w-100 rounded-4" src="{% static 'img/nt2.jpg'%}"alt="nt2"><br> <br>
+                      <h3 class="card-title mb-4">El perro de los memes preocupa a fans </h3>
+                      <a href="./mora.html" class="btn btn-primary mt-4">Ver más</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4 ">
+              <div class="card card-hover">
+                  <div class="card-body text-center m-2">
+                  
+                      <img class="w-100 rounded-4" src="{% static 'img/nt3.jpeg'%}" alt="nt3"> <br> <br>
+                      <h3 class="card-title mb-4">Maratón de Santiago 2023</h3>
+                      <a href="./mortadelo.html" class="btn btn-primary mt-4">Ver más</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  {% endblock %}

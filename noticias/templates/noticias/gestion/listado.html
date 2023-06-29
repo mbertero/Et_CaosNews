@@ -1,0 +1,65 @@
+
+{% extends '../base.html' %}
+{% load static %}
+{% block title %} CaosNews | Noticias {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        
+        <h1>Listado de Noticias</h1>
+        <div class="p-2">
+            <a href="{% url 'add'%}" class="btn btn-primary">Agregar Noticias</a>
+          </div>
+
+        <div class="table-responsive py-3 "  >
+            <table class="table table-striped">
+                <thead>
+                    <tr >
+              
+                        <th>Titular</th>
+                        <th>Fecha Publicacion</th>
+                        <th>IMG</th>
+                        <th>Bajada</th>
+                        <th>Parrafo</th>
+                        <th>Subtitulo</th>
+                        <th>IMG</th>
+                        <th>Parrafo</th>
+                        <th>Subtitulo</th>
+                        <th>IMG</th>
+                        <th>Parrafo</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for n in noticia %}
+                    <tr class="fila-tabla" style="height: 50px;">
+                        <td>{{n.titulo|truncatewords:5 }}</td>
+                        <td>{{n.fecha_publicacion}}</td>
+                        <td><img src="{{n.img_hero.url}}" alt="" width="50px"></td>
+                        <td>{{n.bajada_titulo|truncatewords:5 }}</td>
+                        <td>{{n.contenido|truncatewords:5 }}</td>
+                        <td>{{n.subtitulo|truncatewords:5 }}</td>
+                        <td><img src="{{n.img_noticias.url}}" alt="" width="50px"></td>
+                        <td>{{n.contenido2|truncatewords:5 }}</td>
+                        <td>{{n.subtitulo2|truncatewords:5 }}</td>
+                        <td><img src="{{n.img_noticias2.url}}" alt="" width="50px"></td>
+                        <td>{{n.contenido3|truncatewords:5 }}</td>
+                        <td><a href="edit/{{n.id_noticia}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> </a></td> 
+                        <td><a href="delete/{{n.id_noticia}}" class="btn btn-danger btnEliminacion"><i class="fa-sharp fa-solid fa-trash"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

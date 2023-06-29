@@ -1,0 +1,39 @@
+{% extends "../noticias/base.html" %}
+{% load static %}
+{% block title %} CaosNews | Noticias {% endblock %}
+{% block body %}
+
+
+<div class="row">
+    <div class="col-lg-4 offset-lg-4 ">
+        <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+        <!-- LOGIN -->
+        <form method="post">
+          {% csrf_token %}
+            <div class="form-group mb-1">
+                <label for="usuario" class="form-label">Nombre Usuario</label>
+                <input type="text" class="form-control" name="username">
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" name="password">
+
+            </div>
+
+            <div class="form-group d-grid mb-2">
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+
+        </form>
+        <div class="help-block">
+            Olvido Contraseña? <a href="#">Clic Aquí</a>
+        </div>
+
+        <div class="help-block">
+            No Tiene Cuenta? <a href="#">Registrar</a>
+        </div>
+    </div>
+  
+</div>
+{% endblock %}

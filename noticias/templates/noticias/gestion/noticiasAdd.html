@@ -1,0 +1,24 @@
+
+{% extends '../base.html' %}
+{% load static %}
+{% block title %} CaosNews | Noticias {% endblock %}
+
+{% block body %}
+
+<div class="col-sm-12">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong class="text-dark">{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <h1>Nueva Noticia</h1>
+    <div class="container form">
+        {% include 'noticias/gestion/form.html' %}
+    </div>
+</div>
+
+{% endblock %}

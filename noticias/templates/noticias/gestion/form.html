@@ -1,0 +1,24 @@
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <fieldset>
+        {% for campo in formulario %}
+        <div class="mb-1">
+            {% if campo.field.widget.input_type == 'file' and campo.value %}
+            <p>{{ MEDIA_URL }}</p>
+            <td><img src="{{MEDIA_URL}}{{campo.value}}" alt="" width="100px"></td>
+            {% endif %}
+            <input class="form-control"
+            type="{{campo.field.widget.input_type}}" 
+            id="" 
+            name="{{campo.name}}" 
+            placeholder="{{campo.name}}"
+            value="{{campo.value | default:''}}"
+            required>
+        </div>
+        <div>{{campo.errors}}</div>
+        {% endfor %}
+        <div class="mb-3 d-grid">
+            <button class="btn btn-primary btn-lg" type="submit">Guardar</button>
+        </div>
+    </fieldset>
+</form>

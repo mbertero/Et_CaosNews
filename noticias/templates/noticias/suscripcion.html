@@ -1,0 +1,63 @@
+  
+{% extends './base.html' %}
+{% load static %}
+{% block title %} CaosNews | Noticias {% endblock %}
+
+{% block body %}
+  <!--Formulario de inscripcion-->
+  <h1>Formulario de Suscripción</h1>
+  <div class="row"></div>
+  <form class="ms-5 me-5">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre Completo</label>
+        <input 
+          class="form-control" 
+          id="nombre-form"
+          type="text" 
+          placeholder="Escribe tu nombre completo" 
+          aria-label="default input example"
+        >
+    </div>
+    <div class="mb-3">
+        <label for="rut-form" class="form-label">RUT</label>
+        <input
+          id="rut-form"
+          class="form-control" 
+          type="text" 
+          placeholder="Ej: 16.985.423-1" 
+          aria-label="default input example"
+          required
+        >
+    </div>
+    <div class="mb-3">
+        <label for="email-form" class="form-label">Correo Electrónico</label>
+        <input 
+          type="email-form" 
+          class="form-control" 
+          id="email-form" 
+          aria-describedby="emailHelp"
+          placeholder="Escribe tu correo electrónico"
+        >
+        <div id="emailHelp" class="form-text">No compartiremos tu correo con nadie.</div>
+    </div>
+    <!--Que contenga un patrón de 1 numero, 1 mayuscula y 1 minuscula por lo minimo-->
+    <div class="mb-3">
+        <label for="pass-form1" class="form-label">Contraseña</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="pass-form1"
+          placeholder="Escribe tu contraseña (Debe contener al menos un número, una mayúscula y una minúscula
+          )"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        >
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Recibir noticias por correo</label>
+    </div>
+    <button type="submit" class="btn btn-primary mb-5">Ingresar</button>
+    <br>
+</form>
+
+{% endblock %}

@@ -20,14 +20,14 @@
                             <span>{{n.fecha_publicacion}}</span>
                         </div>
                         <div>
-                            <h3 class="mb-3">En un duelo de golazos, el Real Madrid y el City empataron en la semifinal de ida de la Champions</h3>
-                            <h5>El elenco merengue jugó mejor, pero no pudo hacer la diferencia en su casa</h5>
-                            <p>Nada resuelto aún. En un duelo de golazos, el Real Madrid y el Manchester City empataron a uno en el Santiago Bernabéu por la ida de las semifinales de la Champions League. La próxima semana en Inglaterra volverán a verse las caras. El elenco blanco, campeón vigente, se vio mejor y jugó el partido que quería. Cortó los circuitos del cuadro de Pep Guardiola, que no tuvo su mejor jornada.</p>
-                            <h4 class="mb-3">Est dolor lorem et ea</h4>
-                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="img/not1-1.jpg">
-                            <p>El City se adueñó rápidamente de la pelota y exigió en dos oportunidades al meta Thibaut Courtois en los primeros minutos. Sin embargo, el elenco inglés parecía contenido, demasiado respetuoso de su rival, probablemente por la traumática serie del año pasado. No le daba velocidad a la circulación de la pelota, no profundizaba. El Madrid, en cambio, esperaba en mitad de cancha. Se comprimía muy bien, achicaba espacios y amenazaba con sus transiciones voraces. A los 35' llegó la apertura de la cuenta. Eduardo Camavinga y Luka Modric rompieron la línea de presión del City con una vistosa pared, el francés avanzó varios metros y tocó para Vinicius Jr. El brasileño con un fulminante remate desde fuera del área batió a Ederson.</p>
-                            <h5 class="mb-3">Est dolor lorem et ea</h5>
-                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="img/not1-2.jpg">
+                            <h3 class="mb-3">{{n.titulo}}</h3>
+                            <h5>{{n.bajada_titulo}}</h5>
+                            <p>{{n.contenido}}</p>
+                            <h4 class="mb-3">{{n.subtitulo}}</h4>
+                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="{{n.img_noticias.url}}">
+                            <p>{{n.contenido2}}</p>
+                            <h5 class="mb-3">{{n.subtitulo2}}</h5>
+                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="{{n.img_noticias2.url}}">
                             <p>{{n.contenido3}}</p>
                         </div>
                     </div>
@@ -36,8 +36,9 @@
 
 
             <!-- Comentarios -->
-            <h3>3 Comentarios</h3>
+            <h3>Comentarios</h3>
             <div class="card mb-3" style="max-width: 740px;">
+                
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="./img/foto-1.jpg" class="img-fluid rounded-start" alt="...">
@@ -46,7 +47,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Mortadelo</h5>
                             <p class="card-text">¡Me encanta esta noticia! Realmente creo que la industria del entretenimiento necesita más innovación como esta.</p>
-                            <p class="card-text"><small class="text-muted">Hace 3 minutos</small></p>
+                            <p class="card-text"><small class="text-muted"></small></p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +61,7 @@
                         <div class="card-body">
                             <h5 class="card-title">John Doe</h5>
                             <p class="card-text">No estoy muy seguro de que esta noticia sea completamente precisa. ¿Alguien más tiene alguna opinión al respecto?</p>
-                            <p class="card-text"><small class="text-muted">Hace 1 hora</small></p>
+                            <p class="card-text"><small class="text-muted"></small></p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +75,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Mora</h5>
                             <p class="card-text">Me parece que esta noticia es una excelente oportunidad para discutir algunos de los problemas más amplios en nuestra sociedad. ¿Qué piensan?</p>
-                            <p class="card-text"><small class="text-muted">Hace tres horas</small></p>
+                            <p class="card-text"><small class="text-muted"></small></p>
                         </div>
                     </div>
                 </div>
@@ -120,26 +121,26 @@
                     </div>
                     <div class="d-flex mb-3">
                         <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
-                            <small class="fab fa-facebook-f mr-2"></small><small>12,345 Fans</small>
+                            <small class="fab fa-facebook-f mr-2"></small><small> 12,345 Fans</small>
                         </a>
                         <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #52AAF4;">
-                            <small class="fab fa-twitter mr-2"></small><small>12,345 Followers</small>
+                            <small class="fab fa-twitter mr-2"></small><small> 12,345 Followers</small>
                         </a>
                     </div>
                     <div class="d-flex mb-3">
                         <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #0185AE;">
-                            <small class="fab fa-linkedin-in mr-2"></small><small>12,345 Connects</small>
+                            <small class="fab fa-linkedin-in mr-2"></small><small> 12,345 Connects</small>
                         </a>
                         <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #C8359D;">
-                            <small class="fab fa-instagram mr-2"></small><small>12,345 Followers</small>
+                            <small class="fab fa-instagram mr-2"></small><small> 12,345 Followers</small>
                         </a>
                     </div>
                     <div class="d-flex mb-3">
                         <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #DC472E;">
-                            <small class="fab fa-youtube mr-2"></small><small>12,345 Subscribers</small>
+                            <small class="fab fa-youtube mr-2"></small><small> 12,345 Subscribers</small>
                         </a>
                         <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #1AB7EA;">
-                            <small class="fab fa-vimeo-v mr-2"></small><small>12,345 Followers</small>
+                            <small class="fab fa-vimeo-v mr-2"></small><small> 12,345 Followers</small>
                         </a>
                     </div>
                 </div>

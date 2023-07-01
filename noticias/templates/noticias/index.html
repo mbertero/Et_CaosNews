@@ -5,20 +5,22 @@
 
 {% block body %}
     <!--Carrusel-->
+
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
+      </div>        
+      {% for n in noticia %}
 
-        
-        <div class="carousel-item active img-1">
-          <img src="{% static 'img/articulo-1.jpg'%}" class="d-block w-100" alt="articulo 1">
+      <div class="carousel-inner">
+      
+        <div class="carousel-item img-1 {% if forloop.counter0 == 0%} active{% endif %}">
+          <img src="{{n.img_hero.url}}" class="d-block w-100" alt="articulo 1">
           <div class="carousel-caption d-none d-md-block">
-            <h5><a href="./not-1.html" class="not-link">Real Madrid y el City empataron en la semifinal de ida de la Champions</a></h5>
-            <p>El elenco merengue jugó mejor, pero no pudo hacer la diferencia en su casa.</p>
+            <h5><a href="" class="not-link"></a>{{n.titulo}}</h5>
+            <p>{{n.bajada_titulo}}</p>
           </div>
         </div>
       
@@ -31,49 +33,41 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>
+      {% endfor %}
 
+    </div> 
 
     <!--Tarjetas-->
     <div class="noticias">
       <div>
-          <h1>Lo más visto</h1>
+          <h1>Nuestro Equipo</h1>
       </div>
-    </div>
-
-    <div class="container mb-4 mt-4">
-      <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4">
-              <div class="card card-hover">
-                  <div class="card-body text-center m-2">
-                      
-                      <img class="w-100 rounded-4" src="{% static 'img/nt1.jpg'%}" alt="nt1"><br><br>
-                      <h3 class="card-title mb-4">Aumento del salario Minimo</h3> 
-                      <a href="./anacleto.html" class="btn btn-primary mt-4">Ver más</a>
-                  </div>
+    </div> <br> 
+    <div class="cont  mb-4 mt-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <!--  DESDE BASE DE DATOS -->
+      {% for e in equipo %}
+      <div class="col">
+        <div class="card shadow-sm card-hover">
+          <img class="w-100 rounded-4" src="{{e.img.url}}" alt="">
+          <div class="card-body">
+            <div class="card-text">
+              <h3 class="card-title mb-4" style="text-align: center;">{{e.nombre}}   </h3>      
+              <h5 style="text-align: center;">{{e.descripcion}}</h5>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
               </div>
+            </div>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4 ">
-              <div class="card card-hover">
-                  <div class="card-body text-center m-2">
-                    
-                      <img class="w-100 rounded-4" src="{% static 'img/nt2.jpg'%}"alt="nt2"><br> <br>
-                      <h3 class="card-title mb-4">El perro de los memes preocupa a fans </h3>
-                      <a href="./mora.html" class="btn btn-primary mt-4">Ver más</a>
-                  </div>
-              </div>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4 ">
-              <div class="card card-hover">
-                  <div class="card-body text-center m-2">
-                  
-                      <img class="w-100 rounded-4" src="{% static 'img/nt3.jpeg'%}" alt="nt3"> <br> <br>
-                      <h3 class="card-title mb-4">Maratón de Santiago 2023</h3>
-                      <a href="./mortadelo.html" class="btn btn-primary mt-4">Ver más</a>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
+   
+      {% endfor %}
   </div>
+</div>
+   
+  
+
 
   {% endblock %}

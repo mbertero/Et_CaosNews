@@ -18,6 +18,11 @@ def index(request):
     }
     return render (request, 'noticias/index.html', context)
 
+
+
+def suscripcion(request):
+    context = { }
+    return render (request, 'noticias/suscripcion.html', context)
 # def noticia(request):
 #     context= {}
 #     return render (request, 'noticias/noticia.html', context)

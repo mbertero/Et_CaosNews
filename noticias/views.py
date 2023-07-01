@@ -20,9 +20,30 @@ def index(request):
 
 
 
+# def suscripcion(request):
+#     context = { }
+    
+#     return render (request, 'noticias/suscripcion.html', context)
+  
+  
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
 def suscripcion(request):
-    context = { }
-    return render (request, 'noticias/suscripcion.html', context)
+    if request.method == 'POST':
+        # Procesar los datos del formulario y guardarlos en la base de datos
+        # ...
+
+        # Agregar un mensaje de éxito
+        messages.success(request, 'Datos enviados correctamente.')
+
+        # Redirigir al usuario a la página de inicio
+        return redirect('noticias/index.html')  # Reemplaza 'index' con el nombre de la URL de tu página de inicio
+
+    context = {}
+    return render(request, 'noticias/suscripcion.html', context)
+
+
 # def noticia(request):
 #     context= {}
 #     return render (request, 'noticias/noticia.html', context)

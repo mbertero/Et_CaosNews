@@ -45,26 +45,21 @@ def suscripcion(request):
     return render(request, 'noticias/suscripcion.html', context)
 
 
-# def noticia(request):
-#     context= {}
-#     return render (request, 'noticias/noticia.html', context)
 
 def noticia(request, id_categoria):
     categorias = Categoria.objects.all()
     categoria = Categoria.objects.get(id_categoria=id_categoria)
+    comentario = Comentario.objects.all()
     noticia = Noticia.objects.filter(id_categoria=categoria)
 
     context = {
         'categoria': categoria,
         'categorias': categorias,
         'noticia': noticia,  
+        'comentario': comentario,
     }
     return render(request, 'noticias/noticia.html', context)
 
-# def equipo(request):
-#     equipo = Noticia.objects.all()
-#     context={"noticia":noticia}
-#     return render(request, 'noticias/gestion/listado.html', context)
 
 
 ## GESTION DE NOTICIAS

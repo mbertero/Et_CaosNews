@@ -37,52 +37,29 @@
 
             <!-- Comentarios -->
             <h3>Comentarios</h3>
+         
+           
             <div class="card mb-3" style="max-width: 740px;">
-                
+                {% for c in comentario%}
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{% static 'img/foto-2.jpg' %}" class="img-fluid rounded-start" alt="...">
+                        <img src="{{c.img.url}}" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Mortadelo</h5>
-                            <p class="card-text">¡Me encanta esta noticia! Realmente creo que la industria del entretenimiento necesita más innovación como esta.</p>
+                            <h5 class="card-title">{{c.nombre}}</h5>
+                            <p class="card-text">{{c.comentario}}</p>
                             <p class="card-text"><small class="text-muted"></small></p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card mb-3" style="max-width: 740px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{% static 'img/foto-3.jpg' %}" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">John Doe</h5>
-                            <p class="card-text">No estoy muy seguro de que esta noticia sea completamente precisa. ¿Alguien más tiene alguna opinión al respecto?</p>
-                            <p class="card-text"><small class="text-muted"></small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3" style="max-width: 740px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{% static 'img/foto-1.jpg' %}" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Mora</h5>
-                            <p class="card-text">Me parece que esta noticia es una excelente oportunidad para discutir algunos de los problemas más amplios en nuestra sociedad. ¿Qué piensan?</p>
-                            <p class="card-text"><small class="text-muted"></small></p>
-                        </div>
-                    </div>
-                </div>
+                <br>
+                {% endfor %}
             </div>
            
 
                 <!-- Deja tu comentario -->
+              
                 <div class="bg-light mb-3" style="padding: 30px;">
                     <h3 class="mb-4">Deja tu comentario</h3>
                     <form>
@@ -110,6 +87,7 @@
                         </div>
                     </form>
                 </div>
+             
                 <!-- Comment Form End -->
             </div>
 

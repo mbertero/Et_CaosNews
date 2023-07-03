@@ -25,7 +25,7 @@
     <header class="mt-0 pt-0">
       <!--Topbar Redes Sociales-->
       <div id="topbar" class="bg-cover clearfix pt-3">
-        <h2 class="logo">Caos News</h2>
+        <h2 class="logo"><a href="/">Caos News</a></h2>
         <div class="text-center">
           <ul class="list-unstyled list-inline">
               <li class="list-inline-item">
@@ -65,10 +65,12 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Noticias</a>
               </li>
+              {% for categoria in categorias %}
               <li class="nav-item">
-                <a class="nav-link active" href="noticia/{{noticia.id_categoria}}">Espectáculos</a>
+                <a class="nav-link active" href="/noticia/{{categoria.id_categoria}}">{{categoria.categoria}}</a>
               </li>
-              <li class="nav-item">
+              {% endfor %}
+              <!-- <li class="nav-item">
                 <a class="nav-link active" href="#">Cultura</a>
               </li>
               <li class="nav-item">
@@ -80,7 +82,7 @@
               <li class="nav-item">
                 <a class="nav-link active" href="noticia/{{noticia.id_categoria}}">Deportes</a>
 
-              </li>
+              </li> -->
               
               <li class="nav-item">
                 <a class="nav-link active" href="{% url 'suscripcion' %}">Suscripción</a>

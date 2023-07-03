@@ -12,9 +12,10 @@ from .models import Noticia, Categoria, Equipo, Comentario
 
 def index(request):
     equipo = Equipo.objects.all()
+    categorias = Categoria.objects.all()
     noticia = Noticia.objects.all()
     context = {
-        'equipo': equipo, 'noticia': noticia,
+        'equipo': equipo, 'categorias': categorias, 'noticia': noticia,
     }
     return render (request, 'noticias/index.html', context)
 
@@ -49,13 +50,13 @@ def suscripcion(request):
 #     return render (request, 'noticias/noticia.html', context)
 
 def noticia(request, id_categoria):
-    categoria = Categoria.objects.get(id_categoria=id_categoria)
-
+    categorias = Categoria.objects.all()
     categoria = Categoria.objects.get(id_categoria=id_categoria)
     noticia = Noticia.objects.filter(id_categoria=categoria)
 
     context = {
         'categoria': categoria,
+        'categorias': categorias,
         'noticia': noticia,  
     }
     return render(request, 'noticias/noticia.html', context)

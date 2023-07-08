@@ -28,6 +28,9 @@ h2.logo > a {
     box-sizing: border-box;
 }
 
+.custom-container {
+    color: gray;
+  }
 
 /* Header */
 header  a:hover {

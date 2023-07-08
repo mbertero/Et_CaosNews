@@ -47,3 +47,11 @@ class Comentario(models.Model):
     nombre           = models.CharField(max_length=50)
     comentario       = models.CharField(max_length=100)
     img              = models.ImageField(upload_to='img/', null=True,blank=True, verbose_name='img')
+    
+    
+class Ciudad(models.Model):
+    nombre = models.CharField(max_length=100)
+    codigo = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nombre

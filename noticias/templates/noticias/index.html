@@ -67,7 +67,46 @@
   </div>
 </div>
    
-  
+  <!-- noticias.html -->
+  <div class="noticias">
+    <div>
+        <h1>Revisa el clima</h1>
+    </div>
+  </div> <br>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+  <form method="post" class="col-md">
+    {% csrf_token%}
+    <div class="input-group">
+      <input type="text" class="form-control" name="city" placeholder="Ingresa una ciudad">
+       <div class="input-group-btn">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+       </div>
+    </div>
+    </form>
+
+</nav>
+
+<br> <br>
+<div class="row " >
+  {% if country_code and coordinate and temp and pressure and humidity %}
+  <div class="col d-flex justify-content-center" >
+    <div class="card text-white  mb-6" style="background-color: #6CC5C6;">
+      <div class="card-body">
+        <h4><span class="badge badge-primary" >Código País :</span> {{country_code}}</h4>
+        <h4><span class="badge badge-primary ">Coordenadas :</span> {{coordinate}}</h4>
+        <h4><span class="badge badge-primary ">Temperatura en Celsius :</span> {{temp}}</h4>
+        <h4><span class="badge badge-primary ">Presión :</span> {{pressure}} </h4>
+        <h4><span class="badge badge-primary ">Humedad : </span> {{humidity}}</h4>
+        <h4><span class="badge badge-primary ">Pronóstico : </span> {{main}} <img
+            src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:70px"></h4>
+        <h4><span class="badge badge-primary ;">Descripción : </span> {{description}}</h4>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
 
 
+<!-- <div id="weatherapi-weather-widget-4"></div><script type='text/javascript' src='https://www.weatherapi.com/weather/widget.ashx?loc=372662&wid=4&tu=1&div=weatherapi-weather-widget-4' async></script><noscript><a href="https://www.weatherapi.com/weather/q/santiago-372662" alt="Hour by hour Santiago weather">10 day hour by hour Santiago weather</a></noscript> -->
   {% endblock %}

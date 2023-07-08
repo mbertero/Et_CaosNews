@@ -5,6 +5,12 @@ $(document).ready(function(){
     });
 });
 
+//Confirmar la eliminacion de la noticia 
+
+function confirmDelete() {
+    return confirm('¿Estás seguro de que deseas eliminar esta noticia?');
+}
+
 
 //Validaciones del formulario con JQuery
 
@@ -120,17 +126,5 @@ $(document).ready(function(){
     });
 });
 
-// Datatable
+// Api
 
-// const listNot= async()=> {
-//     try{
-//         const response = await fetch('http://http://127.0.0.1:8000/listado/');
-//         console.log(data);
-//     } catch(ex){
-//         alert(ex);
-//     }
-// };
-
-// window.addEventListener("load", async()=>{
-//     await listNot();
-// });

@@ -103,14 +103,17 @@ def listado(request):
     }
     return render(request, 'noticias/gestion/listado.html', context)
     
+from .models import Categoria
+
 def add(request):
     formulario = NoticiaForm(request.POST or None, request.FILES or None)
+    categorias = Categoria.objects.all()  # Obtener todas las categorías
     if formulario.is_valid():
-       formulario.save()
-       messages.success(request, 'Noticia agregada exitosamente.')
+        formulario.save()
+        messages.success(request, 'Noticia agregada exitosamente.')
+        return redirect('listado')
+    return render(request, "noticias/gestion/noticiasAdd.html", {"formulario": formulario, "categorias": categorias})
 
-       return redirect('listado')
-    return render(request, "noticias/gestion/noticiasAdd.html", {"formulario": formulario})
 
 
 @user_passes_test(lambda u: u.is_superuser)

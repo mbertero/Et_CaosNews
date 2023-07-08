@@ -33,8 +33,20 @@ class Noticia(models.Model):
     img_noticias2     = models.ImageField(upload_to='noticias2', null=True,blank=True)
     contenido3        = models.CharField(max_length=1000)
     
+    
+
     def __str__(self) :
         return str(self.titulo)
+    
+    def delete(self, using=None, keep_parents=False):
+     if self.img_hero:
+        self.img_hero.storage.delete(self.img_hero.name)
+     if self.img_noticias:
+        self.img_noticias.storage.delete(self.img_noticias.name)
+     if self.img_noticias2:
+        self.img_noticias2.storage.delete(self.img_noticias2.name)
+     return super().delete(using, keep_parents)
+
     
 class Equipo(models.Model):
     id_funcionario   = models.AutoField(db_column='idUsuario', primary_key=True)
@@ -47,7 +59,12 @@ class Comentario(models.Model):
     nombre           = models.CharField(max_length=50)
     comentario       = models.CharField(max_length=100)
     img              = models.ImageField(upload_to='img/', null=True,blank=True, verbose_name='img')
-    
+
+
+    def delete(self, using=None, keep_parents=False):
+        self.img.storage.delete(self.img.name)
+        return super().delete()
+
     
 class Ciudad(models.Model):
     nombre = models.CharField(max_length=100)

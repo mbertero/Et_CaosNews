@@ -14,19 +14,21 @@
 {% endif %}
 
   <!--Formulario de inscripcion-->
-  <h1>Formulario de Suscripción</h1>
-  <div class="row"></div>
-  <form class="ms-5 me-5">
-    <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre Completo</label>
-        <input 
-          class="form-control" 
-          id="nombre-form"
-          type="text" 
-          placeholder="Escribe tu nombre completo" 
-          aria-label="default input example"
-        >
-    </div>
+  <h1>Formulario de Registro</h1>
+<div class="row"></div>
+<form class="ms-5 me-5" method="post" action="{% url 'suscripcion' %}">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="nombre-form" class="form-label">Nombre Usuario</label>
+    <input 
+      class="form-control" 
+      id="nombre-form"
+      name="nombre" 
+      type="text" 
+      placeholder="Escribe tu nombre completo" 
+      aria-label="default input example"
+    >
+  </div>
     <!-- <div class="mb-3">
         <label for="rut-form" class="form-label">RUT</label>
         <input
@@ -39,16 +41,17 @@
         >
     </div> -->
     <div class="mb-3">
-        <label for="email-form" class="form-label">Correo Electrónico</label>
-        <input 
-          type="email-form" 
-          class="form-control" 
-          id="email-form" 
-          aria-describedby="emailHelp"
-          placeholder="Escribe tu correo electrónico"
-        >
-        <div id="emailHelp" class="form-text">No compartiremos tu correo con nadie.</div>
-    </div>
+      <label for="email-form" class="form-label">Correo Electrónico</label>
+      <input 
+        type="email"  
+        class="form-control" 
+        id="email-form" 
+        name="email-form"  
+        aria-describedby="emailHelp"
+        placeholder="Escribe tu correo electrónico"
+      >
+      <div id="emailHelp" class="form-text">No compartiremos tu correo con nadie.</div>
+  </div>
     <!--Que contenga un patrón de 1 numero, 1 mayuscula y 1 minuscula por lo minimo-->
     <div class="mb-3">
         <label for="pass-form1" class="form-label">Contraseña</label>

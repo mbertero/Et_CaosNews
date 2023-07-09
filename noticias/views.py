@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .forms import NoticiaForm
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.models import User
 
 
 from django.http import JsonResponse
@@ -52,19 +53,44 @@ def index(request):
     else:
         return render(request, "noticias/index.html", context)
 
-
-
 def suscripcion(request):
     categorias = Categoria.objects.all()
     
     if request.method == 'POST':
-        messages.success(request, 'Datos enviados correctamente.')
-        return redirect('noticias/index.html')  # Reemplaza 'index' con el nombre de la URL de tu página de inicio
+        nombre = request.POST.get('nombre')
+        email = request.POST.get('email-form')
+        password = request.POST.get('pass-form1')
+        newsletter = request.POST.get('newsletter')
+        
+        # Generar un nombre de usuario único
+        username = generate_unique_username(email)
+        
+        # Crear el usuario con el nombre de usuario generado
+        user = User.objects.create_user(username=username, email=email, password=password)
+        
+        # Asignar el rol de miembro del staff
+        user.is_staff = True
+        user.save()
+        
+        # Mostrar mensaje de éxito
+        messages.success(request, 'Usuario creado correctamente. ¡Bienvenido!')
+        
+        return redirect('/')  
 
     context = {
         "categorias": categorias
     }
     return render(request, 'noticias/suscripcion.html', context)
+
+def generate_unique_username(email):
+    username = email.split('@')[0]  
+    suffix = 1
+    while User.objects.filter(username=username).exists():
+        # Si el nombre de usuario ya está en uso, añade un sufijo numérico
+        username = f"{username}{suffix}"
+        suffix += 1
+    return username
+     
 
 
 
@@ -142,7 +168,9 @@ def delete(request, id_noticia):
  
 #GESTION USUARIOS
 def login(request):
-     return render(request, "registration/login.html")
+    categorias = Categoria.objects.all()  # Obtener todas las categorías
+    return render(request, "registration/login.html", {'categorias': categorias})
+
 
 def salir(request):
     logout(request)
